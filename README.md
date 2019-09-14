@@ -8,12 +8,12 @@ Subdomain Enumeration Tool
 
 * apt-get install git
 
-* git clone 
+* git clone https://github.com/AngelSecurityTeam/SubExtractor
 
-* cd 
+* cd SubExtractor
 
 * pip3 install requests
 
 * python3 bluforcefb.py
 
-<img src="">
+<img src="https://github.com/AngelSecurityTeam/SubExtractor/blob/master/subextractor_foto.png">
