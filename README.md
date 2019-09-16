@@ -3,7 +3,7 @@
 Subdomain Enumeration Tool
 
 <h3> Mode Of Execution: </h3>
-s
+
 * apt-get install python3
 
 * apt-get install git
