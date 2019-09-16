@@ -1,6 +1,6 @@
 # SubExtractor
 
-Subdomain Enumeration Toola
+Subdomain Enumeration Tool
 
 <h3> Mode Of Execution: </h3>
 
