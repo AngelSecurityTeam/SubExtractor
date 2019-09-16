@@ -14,6 +14,6 @@ Subdomain Enumeration Tool
 
 * pip3 install requests
 
-* python3 subextractor.pys
+* python3 subextractor.py
 
 <img src="https://github.com/AngelSecurityTeam/SubExtractor/blob/master/subextractor_foto.png">
