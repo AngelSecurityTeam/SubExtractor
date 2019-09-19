@@ -17,3 +17,17 @@ Subdomain Enumeration Tool
 * python3 subextractor.py
 
 <img src="https://github.com/AngelSecurityTeam/SubExtractor/blob/master/subextractor_foto.png">
+
+# TERMUX
+
+* pkg install git
+
+* git clone  https://github.com/AngelSecurityTeam/SubExtractor
+
+* cd SubExtractor
+
+* pkg install python
+
+* pip3 install requests
+
+* python3 subextractor.py
