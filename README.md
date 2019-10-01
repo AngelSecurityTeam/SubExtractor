@@ -31,3 +31,7 @@ Subdomain Enumeration Tool
 * pip3 install requests
 
 * python3 subextractor.py
+
+<h3> Paypal donations: </h3>
+
+* https://www.paypal.me/AngelSecurityTeam
