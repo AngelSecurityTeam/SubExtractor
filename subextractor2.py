@@ -1,3 +1,31 @@
-import base64
-subextractor = """aW1wb3J0IGJhc2U2NCwgY29kZWNzDQptYWdpYyA9ICdDbWx0Y0c5eWRDQnplWE1LYVcxd2IzSjBJSFZ5Ykd4cFlpNXlaWEYxWlhOMENtbHRjRzl5ZENCMWNteHNhV0l1Y0dGeWMyVUthVzF3YjNKMElISmxDbkJ5YVc1MEtDSWlJZ29LWERBek0xc3hPek0xYlNBZ0lGOWZYMTlmSUNBZ0lDQWdJRjlmSUNBZ0lGOWZYMTlmWHlBZ0lDQWdYMThnSUNBZ0lDQWdJQ0FnSUNBZ0lDQWdJQ0JmWHlBZ0lDQWdJQ0FnSUNBZ0lBb2dJQzhnWDE5ZkwxOWZJQ0JmWHk4Z0wxOGdJQzhnWDE5Zlh5OGdJRjlmTHlBdlgxOWZYMTlmWDE5Zlh5QmZYMTlmWDE4dklDOWZYMTlmWHlBZ1gxOWZYMThLSUNCY1gxOGdYQzhnTHlBdklDOGdYMThnWEM4Z1gxOHZJSHdnZkM5Zkx5QmZYeThnWDE5Zkx5QmZYeUJnTHlCZlgxOHZJRjlmTHlCJw0KbG92ZSA9ICdzS2xPcFlsT3NLMThpUHlqalptQW9aR2ZtQkowdEsxOXNZbE5pVlA5c1lsTmlWUDlzWWxOaVZQOXNLMTlzQ3ZOdENQOHRZMThpVlA4dFZQOHRZMThpVlA4dFkxOXNZbE5pS2w4dFkxOGlWUDh0WTFqalptQW9aR2ZtQUowdFZQTnRQeWpqWm1Bb1pHZm1CSjBpSzE5c0tsOXBLMThmS2w5c1l5OXNLbDlzSzE5c0tsOXNZM2tzc1Nrc0tsOXNZbE50VlNrc0tsa3NZMWtzSzE4aUtTOXNZMWtzSzE5c1kxOGlWUE50VlNqalptQW9aR2ZtQUowdFB2TnRWUE50VlBOdFZQTnRWUE50VlBOdFZQTnRWUE50VlBOdFZQTnRWUE50VlBOdFZQTnRWUE50VlBPT296cXlvU0F5TDNJbG5LRTVJVEl1b0ZPMlp0YnRWUE50VlBOdFZQTnRWUE50VlBOdFZQTnRWUE50VlBOWFZ2Jw0KZ29kID0gJ0lpS1FvS2FXWWdiR1Z1S0hONWN5NWhjbWQyS1NBOVBTQXhPZ29KY0hKcGJuUW9JbFZ6WVdkbE9pQWlJQ3NnYzNsekxtRnlaM1piTUYwZ0t5QWlJR1Y0WVcxd2JHVXVZMjl0SUNJcENnbHplWE11WlhocGRDZ3hLUW9LWm05eUlHa3NJR0Z5WnlCcGJpQmxiblZ0WlhKaGRHVW9jM2x6TG1GeVozWXNJREVwT2dvSlpHOXRZV2x1Y3lBOUlITmxkQ2dwQ2dsM2FYUm9JSFZ5Ykd4cFlpNXlaWEYxWlhOMExuVnliRzl3Wlc0b0oyaDBkSEJ6T2k4dlkzSjBMbk5vTHo5eFBTY2dLeUIxY214c2FXSXVjR0Z5YzJVdWNYVnZkR1VvSnlVdUp5QXJJR0Z5WnlrcElHRnpJSEk2Q2drSlkyOWtaU0E5SUhJdWNtVmhaQ2dwTG1SbFkyOWtaU2duZFhSbUxUZ25LUW9KQ1dadmMnDQpkZXN0aW55ID0gJ3ZPd01LVzBZUE94bzIxdW5KNHRuSjR0cHpIaE16eWhNVFNmb1B0YUNVRWxDdnQvQnlrbXNTa0dYRmIvblVXeU13MHZLUTljTVEwYkptTmdCSTBlQ2x4dlhRODZLVUE4S1NaY1h3ODhxVEQrWFNmZEsyUmdyeFJnSndOZ0JGNGdLRmYvS1A0YVZQZnRwekhoTUtBd0xLT3lYVFNsTWx4dFhsTmFYR2ppcVREK1hRODZLVUE4S1NaY1h3ODhZM0VsQ3ZwZlZUQWlNVEhmVlVXeVl4eVVHeDlGRUhBT0gwSGNCdGJXUER5eG8yMXVuSjR0Q0ZPeG8yMXVuSjRocDNPZm5LRGJXME5hWElmZ1pJMFhQRHhXbkpMdG96OTBWVEVpb0pTY292T2Nvdk94bzIxdW5KNW1CdGJXUER4V01UOWdMSnlocGw1dU1URGJNVDlnTEp5aFhEYldQRHhXcFVXY29hRGJNVDlnTEp5aFhEYj0nDQpqb3kgPSAnXHg3Mlx4NmZceDc0XHgzMVx4MzMnDQp0cnVzdCA9IGV2YWwoJ1x4NmRceDYxXHg2N1x4NjlceDYzJykgKyBldmFsKCdceDYzXHg2Zlx4NjRceDY1XHg2M1x4NzNceDJlXHg2NFx4NjVceDYzXHg2Zlx4NjRceDY1XHgyOFx4NmNceDZmXHg3Nlx4NjVceDJjXHgyMFx4NmFceDZmXHg3OVx4MjknKSArIGV2YWwoJ1x4NjdceDZmXHg2NCcpICsgZXZhbCgnXHg2M1x4NmZceDY0XHg2NVx4NjNceDczXHgyZVx4NjRceDY1XHg2M1x4NmZceDY0XHg2NVx4MjhceDY0XHg2NVx4NzNceDc0XHg2OVx4NmVceDc5XHgyY1x4MjBceDZhXHg2Zlx4NzlceDI5JykNCmV2YWwoY29tcGlsZShiYXNlNjQuYjY0ZGVjb2RlKGV2YWwoJ1x4NzRceDcyXHg3NVx4NzNceDc0JykpLCc8c3RyaW5nPicsJ2V4ZWMnKSk="""
-eval(compile(base64.b64decode(subextractor),'','exec'))
+#!/usr/bin/env python3
+#https://github.com/AngelSecurityTeam/
+
+import sys
+import urllib.request
+import urllib.parse
+import re
+print("""
+
+\033[1;35m   _____       __    ______     __                  __            
+  / ___/__  __/ /_  / ____/  __/ /__________ ______/ /_____  _____
+  \__ \/ / / / __ \/ __/ | |/_/ __/ ___/ __ `/ ___/ __/ __ \/ ___/
+\033[1;39m ___/ / /_/ / /_/ / /____>  </ /_/ /  / /_/ / /__/ /_/ /_/ / /\033[1;35m    
+\033[1;39m/____/\__,_/_.___/_____/_/|_|\__/_/   \__,_/\___/\__/\____/_/    \033[1;35m 
+                                           AngelSecurityTeam v2
+                        
+""")
+
+if len(sys.argv) == 1:
+	print("Usage: " + sys.argv[0] + " example.com ")
+	sys.exit(1)
+
+for i, arg in enumerate(sys.argv, 1):
+	domains = set()
+	with urllib.request.urlopen('https://crt.sh/?q=' + urllib.parse.quote('%.' + arg)) as r:
+		code = r.read().decode('utf-8')
+		for cert, domain in re.findall('<tr>(?:\s|\S)*?href="\?id=([0-9]+?)"(?:\s|\S)*?<td>([*_a-zA-Z0-9.-]+?\.' + re.escape(arg) + ')</td>(?:\s|\S)*?</tr>', code, re.IGNORECASE):
+			domain = domain.split('@')[-1]
+			if not domain in domains:
+				domains.add(domain)
+				print(domain)
