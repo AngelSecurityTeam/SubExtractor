@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#https://github.com/AngelSecurityTeam/
+https://github.com/AngelSecurityTeam/SubExtractor/
 
 import sys
 import urllib.request
